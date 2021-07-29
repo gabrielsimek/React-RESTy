@@ -1,11 +1,9 @@
 import React from 'react';
-import RequestInputs from '../controls/RequestInputs';
-import ResponseDisplay from '../display/ResponseDisplay';
+import RESTy from '../../cointainers/RESTy';
 export default function App() {
   return (  
     <>
-      <RequestInputs/>
-      <ResponseDisplay/>
+      <RESTy/>
     </>
   );
 }
