@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const RequestInputs = () => {
+const RequestInputs = ({ reqMethod, reqBody, reqUrl, onChange, onSubmit }) => {
   return (
     <>
       <form name="request-form">
@@ -44,15 +44,20 @@ const RequestInputs = () => {
             value="DELETE"
           />
         </label>
-
       </form>
-      
       <label>
-
         <textarea placeholder="JSON body" form="request-form"></textarea>
       </label>
     </>
   );
 };
 
+RequestInputs.PropTypes = {
+  reqMethod: PropTypes.string.isRequired,
+  reqUrl: PropTypes.string.isRequired,
+  reqBody: PropTypes.string,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
+};
 export default RequestInputs;
+
