@@ -8,10 +8,16 @@ export default class RESTy extends Component {
       method: '',
       body: ''
     };
+    handleReqChange = ({ target }) => {
+      this.setState({ [target.name] : target.value });
+    }
     render() {
+      const { url, method, body } = this.state;
       return (
         <>
-          <RequestInputs/>
+          <RequestInputs url={url} method={method} body={body} 
+            onChange={this.handleReqChange}
+          />
           <ResponseDisplay/>
         </>
       );

@@ -1,24 +1,24 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const RequestInputs = ({ reqMethod, reqBody, reqUrl, onChange, onSubmit }) => {
-  const [selected, setSelected] = useState('');
-  const [url, setUrl] = useState('');
-  const [body, setBody] = useState('');
+const RequestInputs = ({ url, method, body, onChange, onSubmit }) => {
+//   const [selected, setSelected] = useState('');
+//   const [url, setUrl] = useState('');
+//   const [body, setBody] = useState('');
 
-  const handleOptionChange = ({ target }) => {
-    setSelected(target.value);
-    console.log(target.value);
-  };
-  const handleURlChange = ({ target }) => {
-    setUrl(target.value);
-    console.log(target.value);
-  };
+  //   const handleOptionChange = ({ target }) => {
+  //     setSelected(target.value);
+  //     console.log(target.value);
+  //   };
+  //   const handleURlChange = ({ target }) => {
+  //     setUrl(target.value);
+  //     console.log(target.value);
+  //   };
 
-  const handleBodyChange = ({ target }) => {
-    setBody(target.value);
-    console.log(target.value);
-  };
+  //   const handleBodyChange = ({ target }) => {
+  //     setBody(target.value);
+  //     console.log(target.value);
+  //   };
   return (
     <>
       <form name="request-form">
@@ -26,8 +26,9 @@ const RequestInputs = ({ reqMethod, reqBody, reqUrl, onChange, onSubmit }) => {
             URL
           <input 
             type="text"
+            name="url"
             value={url}
-            onChange={handleURlChange}
+            onChange={onChange}
           />
         </label>
         <label>
@@ -35,8 +36,9 @@ const RequestInputs = ({ reqMethod, reqBody, reqUrl, onChange, onSubmit }) => {
           <input 
             type="radio"
             value="GET"
-            checked={selected === 'GET'}
-            onChange={handleOptionChange}
+            name="method"
+            checked={method === 'GET'}
+            onChange={onChange}
           />
         </label>
         <label>
@@ -44,8 +46,9 @@ const RequestInputs = ({ reqMethod, reqBody, reqUrl, onChange, onSubmit }) => {
           <input 
             type="radio"
             value="POST"
-            checked={selected === 'POST'}
-            onChange={handleOptionChange}
+            name="method"
+            checked={method === 'POST'}
+            onChange={onChange}
           />
         </label>
         <label>
@@ -53,8 +56,9 @@ const RequestInputs = ({ reqMethod, reqBody, reqUrl, onChange, onSubmit }) => {
           <input 
             type="radio"
             value="PUT"
-            checked={selected === 'PUT'}
-            onChange={handleOptionChange}
+            name="method"
+            checked={method === 'PUT'}
+            onChange={onChange}
           />
         </label>
         <label>
@@ -62,8 +66,9 @@ const RequestInputs = ({ reqMethod, reqBody, reqUrl, onChange, onSubmit }) => {
           <input 
             type="radio"
             value="PATCH"
-            checked={selected === 'PATCH'}
-            onChange={handleOptionChange}
+            name="method"
+            checked={method === 'PATCH'}
+            onChange={onChange}
           />
         </label>
         <label>
@@ -71,14 +76,18 @@ const RequestInputs = ({ reqMethod, reqBody, reqUrl, onChange, onSubmit }) => {
           <input 
             type="radio"
             value="DELETE"
-            checked={selected === 'DELETE'}
-            onChange={handleOptionChange}
+            name="method"
+            checked={method === 'DELETE'}
+            onChange={onChange}
           />
         </label>
       </form>
       <label>
-        <textarea placeholder="JSON body" form="request-form"
-          onChange={handleBodyChange}
+        <textarea 
+          placeholder="JSON body" 
+          form="request-form"
+          name="body"
+          onChange={onChange}
         ></textarea>
       </label>
     </>
@@ -86,9 +95,9 @@ const RequestInputs = ({ reqMethod, reqBody, reqUrl, onChange, onSubmit }) => {
 };
 
 RequestInputs.PropTypes = {
-  reqMethod: PropTypes.string.isRequired,
-  reqUrl: PropTypes.string.isRequired,
-  reqBody: PropTypes.string,
+  method: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  body: PropTypes.string,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired
 };
