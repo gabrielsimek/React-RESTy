@@ -8,6 +8,8 @@ export default class RESTy extends Component {
       url: '',
       method: '',
       body: null,
+      authType: '',
+      authValue: '',
       response: [],
       history: []
       //array of obj {url, method, body}
@@ -29,6 +31,7 @@ export default class RESTy extends Component {
     }
     
     handleJSONInput = ({ jsObject }) => {
+      // console.log(jsObject);
       this.setState({ body: jsObject });
     }
 
@@ -39,6 +42,7 @@ export default class RESTy extends Component {
     handleSubmit  = async (e) => {
       const { url, method, body, history } = this.state;
       e.preventDefault();
+      console.log(body);
       const response = await makeRequest(url, method, body);
       this.setState({ response });
       this.setState({ history: [...history, { id: history.length, url, method, body }] }, () => {
@@ -46,10 +50,10 @@ export default class RESTy extends Component {
       });
     }
     render() {
-      const { url, method, body, response, history } = this.state;
+      const { url, method, body, response, history, authType, authValue } = this.state;
       return (
         <>
-          <RequestInputs url={url} method={method} body={body} 
+          <RequestInputs url={url} method={method} body={body} authType={authType} authValue={authValue}
             onChange={this.handleReqChange}
             onSubmit={this.handleSubmit}
             onJSONInput={this.handleJSONInput}

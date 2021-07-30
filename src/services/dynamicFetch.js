@@ -1,5 +1,6 @@
 const makeRequest = async (url, method, body) => {
   let res;
+  
   if(body){
     res = await fetch(url, {
       method,
@@ -14,9 +15,10 @@ const makeRequest = async (url, method, body) => {
       method
     });
   }
-  
+
   const json = await res.json();
-  return json;
+  if(json) return json;
+  return { Error: 'Not found' };
 };
 
 export default makeRequest;
