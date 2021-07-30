@@ -7,7 +7,7 @@ export default class RESTy extends Component {
     state = {
       url: '',
       method: '',
-      body: '',
+      body: null,
       response: [],
       history: []
       //array of obj {url, method, body}
@@ -21,6 +21,11 @@ export default class RESTy extends Component {
 
     handleReqChange = ({ target }) => {
       this.setState({ [target.name] : target.value });
+    }
+    
+    handleJSONInput = ({ jsObject }) => {
+      console.log(jsObject);
+      this.setState({ body: jsObject });
     }
 
     handleHistoryClick = ({ url, method, body }) => {
@@ -47,6 +52,7 @@ export default class RESTy extends Component {
           <RequestInputs url={url} method={method} body={body} 
             onChange={this.handleReqChange}
             onSubmit={this.handleSubmit}
+            onJSONInput={this.handleJSONInput}
           />
           <ResponseDisplay response={response}/>
           <HistoryList history={history} onClick={this.handleHistoryClick}/>

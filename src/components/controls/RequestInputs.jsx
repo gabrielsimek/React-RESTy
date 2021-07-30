@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
-const RequestInputs = ({ url, method, body, onChange, onSubmit }) => {
+import JSONInput from 'react-json-editor-ajrm';
+import locale    from 'react-json-editor-ajrm/locale/en';
+const RequestInputs = ({ url, method, body, onChange, onSubmit, onJSONInput }) => {
+  let placeHolder;
+  body ? placeHolder = { body } : placeHolder = null;
   return (
     <>
       <form name="request-form"
@@ -69,13 +72,23 @@ const RequestInputs = ({ url, method, body, onChange, onSubmit }) => {
         <button>Go!</button>
       </form>
       <label>
-        <textarea 
+        {/* <textarea 
           placeholder="JSON body" 
           form="request-form"
           name="body"
           onChange={onChange}
           value={body}
-        ></textarea>
+        ></textarea> */}
+        <JSONInput
+          form="request-form"
+          name="body"
+          onChange={onJSONInput}
+          value={body}
+          id          = "a_unique_id"
+          placeholder = { placeHolder } 
+          locale      = { locale }
+          height      = "200px"
+        />
       </label>
     </>
   );
@@ -86,7 +99,8 @@ RequestInputs.propTypes = {
   url: PropTypes.string.isRequired,
   body: PropTypes.string,
   onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
+  onSubmit: PropTypes.func.isRequired,
+  onJSONInput: PropTypes.func.isRequired
 };
 export default RequestInputs;
 
