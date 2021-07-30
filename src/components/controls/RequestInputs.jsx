@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import JSONInput from 'react-json-editor-ajrm';
 import locale    from 'react-json-editor-ajrm/locale/en';
 const RequestInputs = ({ url, method, body, onChange, onSubmit, onJSONInput }) => {
+  //Use placeholder for JSON input in place of value
   let placeHolder;
   body ? placeHolder =  body : placeHolder = null;
   return (
@@ -72,18 +73,12 @@ const RequestInputs = ({ url, method, body, onChange, onSubmit, onJSONInput }) =
         <button>Go!</button>
       </form>
       <label>
-        {/* <textarea 
-          placeholder="JSON body" 
-          form="request-form"
-          name="body"
-          onChange={onChange}
-          value={body}
-        ></textarea> */}
+      
         <JSONInput
           form="request-form"
           name="body"
           onChange={onJSONInput}
-          value={body}
+          // value={body}
           id          = "a_unique_id"
           placeholder = { placeHolder } 
           locale      = { locale }
@@ -97,10 +92,19 @@ const RequestInputs = ({ url, method, body, onChange, onSubmit, onJSONInput }) =
 RequestInputs.propTypes = {
   method: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
-  body: PropTypes.string,
+  body: PropTypes.object,
   onChange: PropTypes.func.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onJSONInput: PropTypes.func.isRequired
 };
 export default RequestInputs;
 
+
+//text area alt.
+{/* <textarea 
+          placeholder="JSON body" 
+          form="request-form"
+          name="body"
+          onChange={onChange}
+          value={body}
+        ></textarea> */}

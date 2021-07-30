@@ -19,6 +19,11 @@ export default class RESTy extends Component {
       return;
     }
 
+    handleHistoryClear = () => {
+      localStorage.clear();
+      this.setState({ history: [] });
+    }
+
     handleReqChange = ({ target }) => {
       this.setState({ [target.name] : target.value });
     }
@@ -28,7 +33,7 @@ export default class RESTy extends Component {
     }
 
     handleHistoryClick = ({ url, method, body }) => {
-      this.setState({ url, method, body  });
+      this.setState({ url, method, body });
     }
 
     handleSubmit  = async (e) => {
@@ -49,6 +54,7 @@ export default class RESTy extends Component {
             onSubmit={this.handleSubmit}
             onJSONInput={this.handleJSONInput}
           />
+          <button onClick={this.handleHistoryClear}>Clear History</button>
           <ResponseDisplay response={response}/>
           <HistoryList history={history} onClick={this.handleHistoryClick}/>
         </>
