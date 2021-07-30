@@ -4,7 +4,7 @@ import JSONInput from 'react-json-editor-ajrm';
 import locale    from 'react-json-editor-ajrm/locale/en';
 const RequestInputs = ({ url, method, body, onChange, onSubmit, onJSONInput }) => {
   let placeHolder;
-  body ? placeHolder = { body } : placeHolder = null;
+  body ? placeHolder =  body : placeHolder = null;
   return (
     <>
       <form name="request-form"

@@ -6,7 +6,7 @@ const makeRequest = async (url, method, body) => {
       headers: {
         'Content-Type': 'application/json'
       },
-      body
+      body: JSON.stringify(body)
     });
   }
   else {

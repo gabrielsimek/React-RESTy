@@ -8,7 +8,7 @@ const HistoryItem = ({ url, method, body, onClick }) => {
       onClick={() => onClick({ url, method, body })}>
       <h2>{method}</h2>
       <p>{url}</p>
-      <p>{body}</p>
+      <p>{JSON.stringify(body)}</p>
     </li>
   );
 };
