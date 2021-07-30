@@ -18,8 +18,13 @@ export default class RESTy extends Component {
       if(history) this.setState({ history });
       return;
     }
+    
     handleReqChange = ({ target }) => {
       this.setState({ [target.name] : target.value });
+    }
+
+    handleHistoryClick = ({ url, method, body }) => {
+      this.setState({ url, method, body });
     }
 
     handleSubmit  = async (e) => {
@@ -40,7 +45,7 @@ export default class RESTy extends Component {
             onSubmit={this.handleSubmit}
           />
           <ResponseDisplay response={response}/>
-          <HistoryList history={history}/>
+          <HistoryList history={history} onClick={this.handleHistoryClick}/>
         </>
       );
     }

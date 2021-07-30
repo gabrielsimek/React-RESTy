@@ -2,23 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const RequestInputs = ({ url, method, body, onChange, onSubmit }) => {
-//   const [selected, setSelected] = useState('');
-//   const [url, setUrl] = useState('');
-//   const [body, setBody] = useState('');
-
-  //   const handleOptionChange = ({ target }) => {
-  //     setSelected(target.value);
-  //     console.log(target.value);
-  //   };
-  //   const handleURlChange = ({ target }) => {
-  //     setUrl(target.value);
-  //     console.log(target.value);
-  //   };
-
-  //   const handleBodyChange = ({ target }) => {
-  //     setBody(target.value);
-  //     console.log(target.value);
-  //   };
   return (
     <>
       <form name="request-form"
