@@ -1,23 +1,22 @@
 const makeRequest = async (url, method, body) => {
-  try {
-    let res;
-    if(body){
-      res = await fetch(url, {
-        method,
-        body
-      });
-    }
+  let res;
+  if(body){
+    res = await fetch(url, {
+      method,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body
+    });
+  }
+  else {
     res = await fetch(url, {
       method
     });
-  
-    const json = await res.json();
-    return json;
-    
-  } catch(error) {
-    if(error) return error.message;
   }
-
+  
+  const json = await res.json();
+  return json;
 };
 
 export default makeRequest;
