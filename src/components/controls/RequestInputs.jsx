@@ -83,6 +83,7 @@ const RequestInputs = ({ url, method, body, onChange, onSubmit }) => {
             onChange={onChange}
           />
         </label>
+        <button>Go!</button>
       </form>
       <label>
         <textarea 

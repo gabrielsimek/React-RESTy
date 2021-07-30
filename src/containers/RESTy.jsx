@@ -7,7 +7,7 @@ export default class RESTy extends Component {
       url: '',
       method: '',
       body: '',
-      response: {}
+      response: []
       //array or obj?
     };
     handleReqChange = ({ target }) => {
@@ -17,8 +17,9 @@ export default class RESTy extends Component {
     handleSubmit  = async (e) => {
       const { url, method, body } = this.state;
       e.preventDefault();
-      const res = await makeRequest(url, method, body);
-      console.log(res);
+      const response = await makeRequest(url, method, body);
+      console.log(response);
+      this.setState({ response });
 
     }
     render() {

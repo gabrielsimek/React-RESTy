@@ -11,5 +11,5 @@ const ResponseDisplay = ({ response }) => {
 export default ResponseDisplay;
 
 ResponseDisplay.propTypes = {
-  response: PropTypes.object
+  response: PropTypes.array
 };
