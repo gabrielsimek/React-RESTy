@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactJson from 'react-json-view';
-import PropTypes, { object } from 'prop-types';
+import PropTypes from 'prop-types';
 
 const ResponseDisplay = ({ response }) => {
   return <ReactJson

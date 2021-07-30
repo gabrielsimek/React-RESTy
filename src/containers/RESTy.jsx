@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import RequestInputs from '../components/controls/RequestInputs';
 import ResponseDisplay from '../components/display/ResponseDisplay';
 import makeRequest from '../services/dynamicFetch';
+import HistoryList from '../components/history/HistoryList';
 export default class RESTy extends Component {
     state = {
       url: '',
       method: '',
       body: '',
-      response: []
-      //array or obj?
+      response: [],
+      history: [{ url: 'url', method: 'method', body: 'body', id: 1 }]
+      //array of obj {url, method, body}
     };
     handleReqChange = ({ target }) => {
       this.setState({ [target.name] : target.value });
@@ -18,12 +20,10 @@ export default class RESTy extends Component {
       const { url, method, body } = this.state;
       e.preventDefault();
       const response = await makeRequest(url, method, body);
-      console.log(response);
       this.setState({ response });
-
     }
     render() {
-      const { url, method, body, response } = this.state;
+      const { url, method, body, response, history } = this.state;
       return (
         <>
           <RequestInputs url={url} method={method} body={body} 
@@ -31,6 +31,7 @@ export default class RESTy extends Component {
             onSubmit={this.handleSubmit}
           />
           <ResponseDisplay response={response}/>
+          <HistoryList history={history}/>
         </>
       );
     }

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const History = ({ url, method, body, onClick }) => {
+const HistoryItem = ({ url, method, body, onClick }) => {
   return (
     <li onClick={onClick}>
       <h2>{method}</h2>
@@ -11,10 +11,12 @@ const History = ({ url, method, body, onClick }) => {
   );
 };
 
-History.propTypes = {
+HistoryItem.propTypes = {
   url: PropTypes.string.isRequired,
   method: PropTypes.string.isRequired,
   body: PropTypes.string,
   onClick: PropTypes.func.isRequired
 
 };
+
+export default HistoryItem;
