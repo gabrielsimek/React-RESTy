@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 const RequestInputs = ({ url, method, body, onChange, onSubmit }) => {
@@ -21,7 +21,9 @@ const RequestInputs = ({ url, method, body, onChange, onSubmit }) => {
   //   };
   return (
     <>
-      <form name="request-form">
+      <form name="request-form"
+        onSubmit={onSubmit}
+      >
         <label>
             URL
           <input 
@@ -88,13 +90,14 @@ const RequestInputs = ({ url, method, body, onChange, onSubmit }) => {
           form="request-form"
           name="body"
           onChange={onChange}
+          value={body}
         ></textarea>
       </label>
     </>
   );
 };
 
-RequestInputs.PropTypes = {
+RequestInputs.propTypes = {
   method: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   body: PropTypes.string,

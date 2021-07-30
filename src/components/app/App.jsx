@@ -1,5 +1,5 @@
 import React from 'react';
-import RESTy from '../../cointainers/RESTy';
+import RESTy from '../../containers/RESTy';
 export default function App() {
   return (  
     <>

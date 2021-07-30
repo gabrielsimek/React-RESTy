@@ -4,12 +4,12 @@ import PropTypes, { object } from 'prop-types';
 
 const ResponseDisplay = ({ response }) => {
   return <ReactJson
-    src={{ name: 'spot' }}
+    src={response}
   />;
 };
 
 export default ResponseDisplay;
 
-ResponseDisplay.PropTypes = {
+ResponseDisplay.propTypes = {
   response: PropTypes.object
 };
