@@ -9,18 +9,27 @@ export default class RESTy extends Component {
       method: '',
       body: '',
       response: [],
-      history: [{ url: 'url', method: 'method', body: 'body', id: 1 }]
+      history: []
       //array of obj {url, method, body}
     };
+
+    componentDidMount(){
+      const history = JSON.parse(localStorage.getItem('HISTORY'));
+      if(history) this.setState({ history });
+      return;
+    }
     handleReqChange = ({ target }) => {
       this.setState({ [target.name] : target.value });
     }
 
     handleSubmit  = async (e) => {
-      const { url, method, body } = this.state;
+      const { url, method, body, history } = this.state;
       e.preventDefault();
       const response = await makeRequest(url, method, body);
       this.setState({ response });
+      this.setState({ history: [...history, { id: history.length, url, method, body }] }, () => {
+        localStorage.setItem('HISTORY', JSON.stringify(this.state.history));
+      });
     }
     render() {
       const { url, method, body, response, history } = this.state;
