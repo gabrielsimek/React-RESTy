@@ -12,7 +12,6 @@ export default class RESTy extends Component {
       authValue: '',
       response: [],
       history: []
-      //array of obj {url, method, body}
     };
 
     componentDidMount(){
@@ -31,7 +30,7 @@ export default class RESTy extends Component {
     }
     
     handleJSONInput = ({ jsObject }) => {
-      // console.log(jsObject);
+     
       this.setState({ body: jsObject });
     }
 
@@ -40,10 +39,9 @@ export default class RESTy extends Component {
     }
 
     handleSubmit  = async (e) => {
-      const { url, method, body, history } = this.state;
+      const { url, method, body, history, authType, authValue } = this.state;
       e.preventDefault();
-      console.log(body);
-      const response = await makeRequest(url, method, body);
+      const response = await makeRequest(url, method, body, authType, authValue);
       this.setState({ response });
       this.setState({ history: [...history, { id: history.length, url, method, body }] }, () => {
         localStorage.setItem('HISTORY', JSON.stringify(this.state.history));
