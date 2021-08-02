@@ -1,0 +1,14 @@
+form input[type="radio"] {
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+}
+form input[type="radio"]:checked + label{
+    background-color: lightblue;
+}
+
+button {
+    margin-left: 10px
+}
