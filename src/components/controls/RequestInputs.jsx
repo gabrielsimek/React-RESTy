@@ -7,7 +7,7 @@ const RequestInputs = ({ url, method, body, onChange, onSubmit, onJSONInput }) =
   let placeHolder;
   body ? placeHolder =  body : placeHolder = null;
   return (
-    <div style={{ display: 'flex', flexDirection: 'row' }}>
+    <div>
       <form name="request-form"
         onSubmit={onSubmit}
       >

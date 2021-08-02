@@ -4,7 +4,7 @@ import ResponseDisplay from '../components/display/ResponseDisplay';
 import makeRequest from '../services/dynamicFetch';
 import HistoryList from '../components/history/HistoryList';
 import HeaderInput from '../components/controls/HeaderInput';
-import './RESTy.css';
+
 export default class RESTy extends Component {
     state = {
       url: '',
@@ -66,7 +66,7 @@ export default class RESTy extends Component {
         <div className="container">
           <div className = "left">
             <div className="button">
-              <button  onClick={this.handleHistoryClear}>Clear History</button>
+              <button  onClick={this.handleHistoryClear} disabled={history.length < 1}>Clear History</button>
             </div>
             <HistoryList history={history} onClick={this.handleHistoryClick}/>
           </div>
