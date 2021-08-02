@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HistoryList component renders HistoryList 1`] = `
+<DocumentFragment>
+  <div
+    style="display: flex; flex-direction: column; align-items: center;"
+  >
+    <h2>
+      History
+    </h2>
+    <ul
+      style="margin: 10px; list-style: none; width: 400px;"
+    >
+      <li
+        style="cursor: pointer; border: 1px solid black; margin: 5px; padding: 5px;"
+      >
+        <h2>
+          GET
+        </h2>
+        <p>
+          https://hey-arnold-api.herokuapp.com/api/v1/characters?perPage=3&page=2
+        </p>
+        <p />
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

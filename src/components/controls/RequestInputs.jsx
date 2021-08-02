@@ -14,6 +14,7 @@ const RequestInputs = ({ url, method, body, onChange, onSubmit, onJSONInput }) =
         <label>
             URL
           <input 
+            placeholder="URL"
             type="text"
             name="url"
             value={url}
@@ -80,12 +81,9 @@ const RequestInputs = ({ url, method, body, onChange, onSubmit, onJSONInput }) =
           placeholder = { placeHolder } 
           locale      = { locale }
           height      = "200px"
-          width = "1000px"
+          width = "600px"
         />
       </form>
-      
-    
-      
     </div>
   );
 };

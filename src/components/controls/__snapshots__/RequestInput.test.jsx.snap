@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RequestInputs component renders RequestInputs 1`] = `
+<DocumentFragment>
+  <div>
+    <form
+      name="request-form"
+    >
+      <label>
+        URL
+        <input
+          name="url"
+          placeholder="URL"
+          type="text"
+          value=""
+        />
+      </label>
+      <label>
+        GET
+        <input
+          name="method"
+          type="radio"
+          value="GET"
+        />
+      </label>
+      <label>
+        POST
+        <input
+          name="method"
+          type="radio"
+          value="POST"
+        />
+      </label>
+      <label>
+        PUT
+        <input
+          name="method"
+          type="radio"
+          value="PUT"
+        />
+      </label>
+      <label>
+        PATCH
+        <input
+          name="method"
+          type="radio"
+          value="PATCH"
+        />
+      </label>
+      <label>
+        DELETE
+        <input
+          name="method"
+          type="radio"
+          value="DELETE"
+        />
+      </label>
+      <button>
+        Go!
+      </button>
+      <div
+        id="a_unique_id-outer-box"
+        name="outer-box"
+        style="display: block; overflow: none; height: 200px; width: 600px; margin: 0px; box-sizing: border-box; position: relative;"
+      >
+        <div
+          style="opacity: 1; height: 30px; width: 30px; position: absolute; top: 0px; right: 0px; transform: translate(-25%,25%); pointer-events: none; transition-duration: 0.2s; transition-timing-function: cubic-bezier(0, 1, 0.5, 1);"
+        >
+          <svg
+            height="30px"
+            viewBox="0 0 100 100"
+            width="30px"
+          >
+            <path
+              clip-rule="evenodd"
+              d="M39.363,79L16,55.49l11.347-11.419L39.694,56.49L72.983,23L84,34.085L39.363,79z"
+              fill="green"
+              fill-rule="evenodd"
+              opacity="0.85"
+            />
+          </svg>
+        </div>
+        <div
+          id="a_unique_id-container"
+          name="container"
+          style="display: block; height: 200px; width: 600px; margin: 0px; box-sizing: border-box; overflow: hidden; font-family: Roboto, sans-serif;"
+        >
+          <div
+            id="a_unique_id-warning-box"
+            name="warning-box"
+            style="display: block; overflow: hidden; height: 0px; width: 100%; margin: 0px; background-color: rgb(30, 30, 30); transition-duration: 0.2s; transition-timing-function: cubic-bezier(0, 1, 0.5, 1);"
+          >
+            <span
+              style="display: inline-block; height: 60px; width: 60px; margin: 0px; box-sizing: border-box; overflow: hidden; vertical-align: top; pointer-events: none;"
+            >
+              <div
+                style="position: relative; top: 0px; left: 0px; height: 60px; width: 60px; margin: 0px; pointer-events: none;"
+              >
+                <div
+                  style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;"
+                >
+                  <svg
+                    height="25px"
+                    viewBox="0 0 100 100"
+                    width="25px"
+                  >
+                    <path
+                      clip-rule="evenodd"
+                      d="M73.9,5.75c0.467-0.467,1.067-0.7,1.8-0.7c0.7,0,1.283,0.233,1.75,0.7l16.8,16.8  c0.467,0.5,0.7,1.084,0.7,1.75c0,0.733-0.233,1.334-0.7,1.801L70.35,50l23.9,23.95c0.5,0.467,0.75,1.066,0.75,1.8  c0,0.667-0.25,1.25-0.75,1.75l-16.8,16.75c-0.534,0.467-1.117,0.7-1.75,0.7s-1.233-0.233-1.8-0.7L50,70.351L26.1,94.25  c-0.567,0.467-1.167,0.7-1.8,0.7c-0.667,0-1.283-0.233-1.85-0.7L5.75,77.5C5.25,77,5,76.417,5,75.75c0-0.733,0.25-1.333,0.75-1.8  L29.65,50L5.75,26.101C5.25,25.667,5,25.066,5,24.3c0-0.666,0.25-1.25,0.75-1.75l16.8-16.8c0.467-0.467,1.05-0.7,1.75-0.7  c0.733,0,1.333,0.233,1.8,0.7L50,29.65L73.9,5.75z"
+                      fill="red"
+                      fill-rule="evenodd"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </span>
+            <span
+              style="display: inline-block; height: 60px; width: calc(100% - 60px); margin: 0px; overflow: hidden; vertical-align: top; position: absolute; pointer-events: none;"
+            />
+          </div>
+          <div
+            id="a_unique_id-body"
+            name="body"
+            style="display: flex; overflow: none; height: 100%; margin: 0px; resize: none; font-family: Roboto Mono, Monaco, monospace; font-size: 11px; background-color: rgb(30, 30, 30); transition-duration: 0.2s; transition-timing-function: cubic-bezier(0, 1, 0.5, 1);"
+          >
+            <span
+              id="a_unique_id-labels"
+              name="labels"
+              style="display: inline-block; box-sizing: border-box; vertical-align: top; height: 100%; width: 44px; margin: 0px; padding: 5px 0px 5px 10px; overflow: hidden; color: rgb(212, 212, 212);"
+            />
+            <span
+              autocapitalize="off"
+              autocomplete="off"
+              autocorrect="off"
+              contenteditable="true"
+              id="a_unique_id"
+              spellcheck="false"
+              style="display: inline-block; box-sizing: border-box; vertical-align: top; height: 100%; flex: 1; margin: 0px; padding: 5px; overflow-x: hidden; overflow-y: auto; word-wrap: break-word; white-space: pre-line; color: rgb(212, 212, 212); outline: none;"
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</DocumentFragment>
+`;
