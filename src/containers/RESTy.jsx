@@ -13,7 +13,7 @@ export default class RESTy extends Component {
       history: [],
       headerKey: '',
       headerValue: '',
-      headers: []
+      headers: {}
     };
 
     componentDidMount(){
@@ -46,14 +46,13 @@ export default class RESTy extends Component {
     handleHeaderSubmit = (e) => {
       const { headerKey, headerValue, headers } = this.state;
       e.preventDefault();
-      const header = { [headerKey]: headerValue };
-      this.setState({ headers: [...headers, header], headerKey: '', headerValue: '' });
+      this.setState({ headers: { ...headers, [headerKey]: headerValue }, headerKey: '', headerValue: '' });
     }
 
     handleSubmit  = async (e) => {
-      const { url, method, body, history, authType, authValue } = this.state;
+      const { url, method, body, history, headers } = this.state;
       e.preventDefault();
-      const response = await makeRequest(url, method, body, authType, authValue);
+      const response = await makeRequest(url, method, body, headers);
       this.setState({ response });
       this.setState({ history: [...history, { id: history.length, url, method, body }] }, () => {
         localStorage.setItem('HISTORY', JSON.stringify(this.state.history));

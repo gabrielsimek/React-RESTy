@@ -1,11 +1,12 @@
-const makeRequest = async (url, method, body, authType, authValue) => {
+const makeRequest = async (url, method, body, headers) => {
 
   try {
     const res = await fetch(url, {
-      method,
+      method,   
       headers: {
-        ...(body && { 'Content-Type': 'application/json' }),
-        ...((authType && authValue) && { [authType]: authValue })
+        //make sure there is a body and another content type has not been specified
+        ...((body && !Object.prototype.hasOwnProperty.call(headers, 'Content-Type')) && { 'Content-Type': 'application/json' }),
+        ...(headers && headers)
       },
       ...(body && { body: JSON.stringify(body) })
       
