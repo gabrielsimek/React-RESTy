@@ -15,45 +15,60 @@ exports[`RequestInputs component renders RequestInputs 1`] = `
           value=""
         />
       </label>
-      <label>
+      <input
+        id="get"
+        name="method"
+        type="radio"
+        value="GET"
+      />
+      <label
+        for="get"
+      >
         GET
-        <input
-          name="method"
-          type="radio"
-          value="GET"
-        />
       </label>
-      <label>
+      <input
+        id="post"
+        name="method"
+        type="radio"
+        value="POST"
+      />
+      <label
+        for="post"
+      >
         POST
-        <input
-          name="method"
-          type="radio"
-          value="POST"
-        />
       </label>
-      <label>
+      <input
+        id="put"
+        name="method"
+        type="radio"
+        value="PUT"
+      />
+      <label
+        for="put"
+      >
         PUT
-        <input
-          name="method"
-          type="radio"
-          value="PUT"
-        />
       </label>
-      <label>
+      <input
+        id="patch"
+        name="method"
+        type="radio"
+        value="PATCH"
+      />
+      <label
+        for="patch"
+      >
         PATCH
-        <input
-          name="method"
-          type="radio"
-          value="PATCH"
-        />
       </label>
-      <label>
+      <input
+        id="delete"
+        name="method"
+        type="radio"
+        value="DELETE"
+      />
+      <label
+        for="delete"
+      >
         DELETE
-        <input
-          name="method"
-          type="radio"
-          value="DELETE"
-        />
       </label>
       <button>
         Go!
