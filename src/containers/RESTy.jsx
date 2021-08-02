@@ -4,6 +4,7 @@ import ResponseDisplay from '../components/display/ResponseDisplay';
 import makeRequest from '../services/dynamicFetch';
 import HistoryList from '../components/history/HistoryList';
 import HeaderInput from '../components/controls/HeaderInput';
+import './RESTy.css';
 export default class RESTy extends Component {
     state = {
       url: '',
@@ -53,7 +54,8 @@ export default class RESTy extends Component {
       const { url, method, body, history, headers } = this.state;
       e.preventDefault();
       const response = await makeRequest(url, method, body, headers);
-      this.setState({ response });
+      //reset headers per requests.
+      this.setState({ response, headers: {} });
       this.setState({ history: [...history, { id: history.length, url, method, body }] }, () => {
         localStorage.setItem('HISTORY', JSON.stringify(this.state.history));
       });
@@ -61,20 +63,31 @@ export default class RESTy extends Component {
     render() {
       const { url, method, body, response, history, headerKey, headerValue } = this.state;
       return (
-        <>
-          <RequestInputs url={url} method={method} body={body}
-            onChange={this.handleReqChange}
-            onSubmit={this.handleSubmit}
-            onJSONInput={this.handleJSONInput}
-          />
-          <HeaderInput headerKey={headerKey} headerValue={headerValue}
-            onChange={this.handleHeaderChange}
-            onSubmit={this.handleHeaderSubmit}
-          />
-          <button onClick={this.handleHistoryClear}>Clear History</button>
-          <ResponseDisplay response={response}/>
-          <HistoryList history={history} onClick={this.handleHistoryClick}/>
-        </>
+        <div className="container">
+          <div className = "left">
+            <div className="button">
+              <button  onClick={this.handleHistoryClear}>Clear History</button>
+            </div>
+            <HistoryList history={history} onClick={this.handleHistoryClick}/>
+          </div>
+          <div className="right">
+            <div className="request-input">
+              <HeaderInput headerKey={headerKey} headerValue={headerValue}
+                onChange={this.handleHeaderChange}
+                onSubmit={this.handleHeaderSubmit}
+              />
+              <RequestInputs className url={url} method={method} body={body}
+                onChange={this.handleReqChange}
+                onSubmit={this.handleSubmit}
+                onJSONInput={this.handleJSONInput}
+              />
+            </div>
+            <div className="response">
+              <ResponseDisplay response={response}/>
+            </div>
+          </div>
+         
+        </div>
       );
     }
 }

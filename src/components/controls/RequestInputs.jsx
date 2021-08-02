@@ -7,7 +7,7 @@ const RequestInputs = ({ url, method, body, onChange, onSubmit, onJSONInput }) =
   let placeHolder;
   body ? placeHolder =  body : placeHolder = null;
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'row' }}>
       <form name="request-form"
         onSubmit={onSubmit}
       >
@@ -71,9 +71,7 @@ const RequestInputs = ({ url, method, body, onChange, onSubmit, onJSONInput }) =
           />
         </label>
         <button>Go!</button>
-      </form>
-      <label>
-      
+          
         <JSONInput
           form="request-form"
           name="body"
@@ -82,9 +80,13 @@ const RequestInputs = ({ url, method, body, onChange, onSubmit, onJSONInput }) =
           placeholder = { placeHolder } 
           locale      = { locale }
           height      = "200px"
+          width = "1000px"
         />
-      </label>
-    </>
+      </form>
+      
+    
+      
+    </div>
   );
 };
 

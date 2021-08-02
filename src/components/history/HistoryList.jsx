@@ -10,7 +10,7 @@ const HistoryList = ({ history, onClick }) => {
       onClick={onClick}
     />;
   });
-  return <ul>{historyItems}</ul>;
+  return <ul style={{ border: 'solid black 1px', backgroundColor: 'blue', margin: '10px', listStyle: 'none', width: '400px' }}>{historyItems}</ul>;
 };
 
 HistoryList.propTypes = {

@@ -1,0 +1,6 @@
+.right {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr ;
+    justify-content: center;
+    justify-content: flex-start;
+}

@@ -5,25 +5,27 @@ const HeaderInput = ({ headerKey, headerValue, onChange, onSubmit }) => {
   return (
     <>
   
-      <form onSubmit={onSubmit}>
-        <label>
+      <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+        <label htmlFor="header-key"></label>
       Header Key
-          <input
-            type="text"
-            name="headerKey"
-            onChange={onChange}
-            value={headerKey}
-          />
-        </label>
-        <label>
+        <input
+          id="header-key"
+          type="text"
+          name="headerKey"
+          onChange={onChange}
+          value={headerKey}
+        />
+        
+        <label htmlFor="header-value"></label>
       Header Value
-          <input
-            type="text"
-            name="headerValue"
-            onChange={onChange}
-            value={headerValue}
-          />
-        </label>
+        <input
+          id="header-value"
+          type="text"
+          name="headerValue"
+          onChange={onChange}
+          value={headerValue}
+        />
+        
         <button>Add Header</button>
       </form>
     </>

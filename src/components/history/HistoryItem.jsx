@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const HistoryItem = ({ url, method, body, onClick }) => {
   return (
     <li 
-      style={{ cursor: 'pointer' }}
+      style={{ cursor: 'pointer', border: 'solid black 1px', margin: '5px', padding: '5px' }}
       onClick={() => onClick({ url, method, body })}>
       <h2>{method}</h2>
       <p>{url}</p>
