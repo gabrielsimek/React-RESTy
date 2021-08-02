@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import JSONInput from 'react-json-editor-ajrm';
 import locale    from 'react-json-editor-ajrm/locale/en';
-const RequestInputs = ({ url, method, body, authType, authValue, onChange, onSubmit, onJSONInput }) => {
+const RequestInputs = ({ url, method, body, onChange, onSubmit, onJSONInput }) => {
   //Use placeholder for JSON input in place of value
   let placeHolder;
   body ? placeHolder =  body : placeHolder = null;
@@ -71,22 +71,6 @@ const RequestInputs = ({ url, method, body, authType, authValue, onChange, onSub
           />
         </label>
         <button>Go!</button>
-        <label>
-          Authorization Type
-          <input
-            name="authType"
-            value={authType}
-            onChange={onChange}
-          />
-        </label>
-        <label>
-          Key/Token
-          <input
-            name="authValue"
-            value={authValue}
-            onChange={onChange}
-          />
-        </label>
       </form>
       <label>
       

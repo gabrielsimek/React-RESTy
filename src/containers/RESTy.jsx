@@ -3,15 +3,17 @@ import RequestInputs from '../components/controls/RequestInputs';
 import ResponseDisplay from '../components/display/ResponseDisplay';
 import makeRequest from '../services/dynamicFetch';
 import HistoryList from '../components/history/HistoryList';
+import HeaderInput from '../components/controls/HeaderInput';
 export default class RESTy extends Component {
     state = {
       url: '',
       method: '',
       body: null,
-      authType: '',
-      authValue: '',
-      response: [],
-      history: []
+      response: ['Make a request'],
+      history: [],
+      headerKey: '',
+      headerValue: '',
+      headers: []
     };
 
     componentDidMount(){
@@ -28,6 +30,10 @@ export default class RESTy extends Component {
     handleReqChange = ({ target }) => {
       this.setState({ [target.name] : target.value });
     }
+
+    handleHeaderChange = ({ target }) => {
+      this.setState({ [target.name] : target.value });
+    }
     
     handleJSONInput = ({ jsObject }) => {
      
@@ -36,6 +42,12 @@ export default class RESTy extends Component {
 
     handleHistoryClick = ({ url, method, body }) => {
       this.setState({ url, method, body });
+    }
+    handleHeaderSubmit = (e) => {
+      const { headerKey, headerValue, headers } = this.state;
+      e.preventDefault();
+      const header = { [headerKey]: headerValue };
+      this.setState({ headers: [...headers, header], headerKey: '', headerValue: '' });
     }
 
     handleSubmit  = async (e) => {
@@ -48,13 +60,17 @@ export default class RESTy extends Component {
       });
     }
     render() {
-      const { url, method, body, response, history, authType, authValue } = this.state;
+      const { url, method, body, response, history, headerKey, headerValue } = this.state;
       return (
         <>
-          <RequestInputs url={url} method={method} body={body} authType={authType} authValue={authValue}
+          <RequestInputs url={url} method={method} body={body}
             onChange={this.handleReqChange}
             onSubmit={this.handleSubmit}
             onJSONInput={this.handleJSONInput}
+          />
+          <HeaderInput headerKey={headerKey} headerValue={headerValue}
+            onChange={this.handleHeaderChange}
+            onSubmit={this.handleHeaderSubmit}
           />
           <button onClick={this.handleHistoryClear}>Clear History</button>
           <ResponseDisplay response={response}/>
@@ -63,3 +79,5 @@ export default class RESTy extends Component {
       );
     }
 }
+
+
