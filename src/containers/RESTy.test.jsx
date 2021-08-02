@@ -18,6 +18,7 @@ describe('RESTy container', () => {
     const goButton = screen.getByText('Go!');
     userEvent.click(goButton);  
     const historyList =  await screen.findByRole('list');
+    expect(historyList).not.toBeEmptyDOMElement;
   });
  
   
