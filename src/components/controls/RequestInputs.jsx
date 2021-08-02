@@ -4,10 +4,10 @@ import JSONInput from 'react-json-editor-ajrm';
 import locale    from 'react-json-editor-ajrm/locale/en';
 import './RequestInputs.css';
 const RequestInputs = ({ url, method, body, onChange, onSubmit, onJSONInput }) => {
-
+ // map through methods to dynamically create inputs
   //Use placeholder for JSON input in place of value
-  let placeHolder;
-  body ? placeHolder =  body : placeHolder = null;
+  // let placeHolder;
+  // body ? placeHolder =  body : placeHolder = null;
   return (
     <div>
       <form name="request-form"
@@ -79,7 +79,7 @@ const RequestInputs = ({ url, method, body, onChange, onSubmit, onJSONInput }) =
           name="body"
           onChange={onJSONInput}
           id          = "a_unique_id"
-          placeholder = { placeHolder } 
+          placeholder = { body } 
           locale      = { locale }
           height      = "200px"
           width = "600px"
