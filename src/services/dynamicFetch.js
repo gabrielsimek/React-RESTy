@@ -5,7 +5,7 @@ const makeRequest = async (url, method, body, headers) => {
       method,   
       headers: {
         //make sure another content type has not been added
-        ...(!Object.prototype.hasOwnProperty.call(headers, 'Content-Type') && { 'Content-Type': 'application/json' }),
+        ...(body && !Object.prototype.hasOwnProperty.call(headers, 'Content-Type') && { 'Content-Type': 'application/json' }),
         ...(headers && headers)
       },
       ...(body && { body: JSON.stringify(body) })
