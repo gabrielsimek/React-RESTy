@@ -4,8 +4,8 @@ const makeRequest = async (url, method, body, headers) => {
     const res = await fetch(url, {
       method,   
       headers: {
-        //make sure there is a body and another content type has not been specified
-        ...((body && !Object.prototype.hasOwnProperty.call(headers, 'Content-Type')) && { 'Content-Type': 'application/json' }),
+        //make sure another content type has not been added
+        ...(!Object.prototype.hasOwnProperty.call(headers, 'Content-Type') && { 'Content-Type': 'application/json' }),
         ...(headers && headers)
       },
       ...(body && { body: JSON.stringify(body) })

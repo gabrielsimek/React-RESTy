@@ -7,6 +7,7 @@ const ResponseDisplay = ({ response }) => {
   return <ReactJson
     style={{ width: '50%' }}
     src={response}
+    displayDataTypes={false}
   />;
 };
 
